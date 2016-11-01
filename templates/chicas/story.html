@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>CHICAS MITICAS - MYTH GIRLS</title>
+        <script src="../../static/js/jquery.js"></script>
+        <script src="../../static/js/chicas-jquery.js"></script>
+        <link rel="stylesheet" href="../../static/style.css">
+        <script src="../../static/js/jquery.modal.js" type="text/javascript" charset="utf-8"></script>
+        <link rel="stylesheet" href="../../static/jquery.modal.css" type="text/css" media="screen" />
+    </head>
+
+    <body>
+        <h1>Chicas Míticas</h1>
+        <div id="content">
+            <p>Habia una vez un barco chiquito<span id="modal1"><a href="#ex1" rel="modal:open"> </a></span>Habia una vez un barco chiquito<span id="modal2"><a href="#ex1" rel="modal:open"> </a></span>Habia una vez un chiquito<span id="modal3"><a href="#ex1" rel="modal:open"> </a></span>barco Tan chiquito,<span id="modal4"><a href="#ex1" rel="modal:open"> </a></span>tan chiquito que no podia <span id="msg">navegar</span></p>
+        </div>
+        
+
+
+
+<div id="ex1" class="modal" style="display:none;">
+    {% if entries %}
+            <ul>
+                {% for entry in entries %}
+                <li>{{ entry.entry }} 
+                {% endfor %}
+            </ul>
+        {% else %}
+            <strong>There are no existing entries.</strong>
+        {% endif %}
+    <form id="entry_form" method="post" action="/chicas/story/">
+
+            {% csrf_token %}
+            
+                {{ entry.as_p }}
+            
+
+            <input type="submit" name="submit" value="Add Entry" />
+        </form><a href="#" rel="modal:close">Close</a> or press ESC</p>
+  </div>
+
+
+
+
+    </body>
+</html>
